@@ -1,19 +1,29 @@
 import React from "react";
 import "./Weather.css";
+import axios from "axios";
 
-export default function Weather() {
-  let weatherData = {
-    city: "Honolulu",
-    temperature: 50,
-    high: 80,
-    low: 72,
-    description: "Partly Cloudy",
-    feels: 77,
-    date: "Wednesday 7:40",
-    imgUrl: "https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png",
-    humidity: 75,
-    wind: 8,
-  };
+export default function Weather(props) {
+  let [weatherData, setWeatherData] = useState({ ready: false });
+  let [city, setCity] = useState(props.defaultCity);
+  function handleweather(response) {
+    setWeatherData({
+      ready: true,
+      coordinates: response.data.coordinates,
+      temperature: response.data.main.temp,
+      description: response.data.weather[0].description,
+      date: new Date(response.data.dt * 1000),
+      humidity: response.data.main.humidity,
+      wind: response.data.wind.speed,
+      city: response.data.name,
+      icon: response.data.weather[0].icon,
+    });
+  }
+
+  function search() {
+    let apiKey = "ac1c40046d1b3bee98912c18df6a03ec";
+    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    axios.get(url).then(displayWeather);
+  }
 
   return (
     <div class="container">

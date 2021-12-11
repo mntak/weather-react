@@ -1,0 +1,87 @@
+.col-6 {
+  color: white;
+  font-size: 16px;
+}
+
+.col-6::first-letter {
+  text-transform: capitalize;
+}
+
+.container {
+  padding: 15px;
+
+  height: 680px;
+  margin: 50px auto;
+  max-width: 720px;
+}
+
+.weather-app {
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  border: 1px solid #dadde1;
+  border-radius: 20px;
+  margin: 20px;
+  background-image: url("/src/images/turtle.jpg");
+  padding: 20px 16px 24px;
+}
+
+#current-temp {
+  color: white;
+  font-weight: bolder;
+  font-size: 56px;
+  margin-bottom: 5px;
+}
+.weather-forecast {
+  color: burlywood;
+  margin-top: 20px;
+  text-align: center;
+  font-weight: bolder;
+}
+.units {
+  font-size: 24px;
+  color: rgb(33, 33, 33);
+  text-decoration: none;
+}
+
+.week {
+  color: gray;
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 14px;
+}
+.search:hover {
+  background-color: bisque;
+}
+
+.weather-app .active {
+  color: white;
+  cursor: default;
+}
+
+.weather-app .active:hover {
+  text-decoration: none;
+}
+
+button {
+  background: rgb(238, 216, 188);
+  padding: 5px 10px;
+  border-radius: 30px;
+  color: rgb(44, 42, 42);
+}
+
+a {
+  text-decoration: none;
+  color: blue;
+}
+
+.row-week {
+  margin-top: 20px;
+  text-align: center;
+}
+
+footer {
+  text-align: center;
+  color: rgb(44, 42, 42);
+}

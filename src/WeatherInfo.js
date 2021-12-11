@@ -4,6 +4,14 @@ import WeatherIcon from "./WeatherIcon";
 import Temperature from "./Temperature";
 
 export default function WeatherInfo(props) {
+  function maxTemperature() {
+    let temperature = Math.round(props.data.temp.max);
+    return `${temperature}º`;
+  }
+  function minTemperature() {
+    let temperature = Math.round(props.data.temp.min);
+    return `${temperature}º`;
+  }
   return (
     <div className="WeatherInfo">
       <h1>{props.data.city}</h1>
@@ -43,8 +51,8 @@ export default function WeatherInfo(props) {
           <div className="col-6">
             <h4>
               Today's Highs & Lows <br />
-              <span id="current-high">{weatherData.high}</span>°F
-              <span id="current-low">{weatherData.low}</span>°F
+              <span id="current-high">{maxTemperature()}</span>°F
+              <span id="current-low">{minTemperature()}</span>°F
             </h4>
           </div>
         </div>
@@ -61,9 +69,7 @@ export default function WeatherInfo(props) {
           <br />
           <span id="wind">{Math.round(props.data.wind)} mph Wind</span>
           <br />
-          <span id="humidity">
-            {Math.round(weatherData.humidity)}% Humidity
-          </span>
+          <span id="humidity">{Math.round(props.data.humidity)}% Humidity</span>
         </h5>
       </div>
     </div>

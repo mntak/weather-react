@@ -28,16 +28,6 @@ export default function WeatherInfo(props) {
           <Temperature celsius={props.data.temperature} />
         </span>
 
-        <span className="units">
-          <a
-            href="#"
-            rel="noreferrer"
-            id="fahrenheit-link"
-            className="active"
-            alt=""
-          ></a>{" "}
-          <a href="#" rel="noreferrer" id="celcius-link"></a>
-        </span>
         <span>
           <WeatherIcon code={props.data.icon} size={72} />
         </span>

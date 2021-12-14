@@ -30,13 +30,13 @@ export default function WeatherInfo(props) {
 
         <span className="units">
           <a
-            href="/"
+            href="#"
             rel="noreferrer"
             id="fahrenheit-link"
             className="active"
             alt=""
           ></a>{" "}
-          <a href="/" rel="noreferrer" id="celcius-link"></a>
+          <a href="#" rel="noreferrer" id="celcius-link"></a>
         </span>
         <span>
           <WeatherIcon code={props.data.icon} size={72} />

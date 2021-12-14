@@ -1,15 +1,15 @@
 import React from "react";
-import Date from "./Date";
+import FormattedDate from "./FormattedDate";
 import WeatherIcon from "./WeatherIcon";
 import Temperature from "./Temperature";
 
 export default function WeatherInfo(props) {
   function maxTemperature() {
-    let temperature = Math.round(props.data.temp.max);
+    let temperature = Math.round(props.data.temp_max);
     return `${temperature}º`;
   }
   function minTemperature() {
-    let temperature = Math.round(props.data.temp.min);
+    let temperature = Math.round(props.data.temp_min);
     return `${temperature}º`;
   }
   return (
@@ -18,7 +18,7 @@ export default function WeatherInfo(props) {
       <ul>
         <li>
           {""}
-          <Date date={props.data.date} />
+          <FormattedDate date={props.data.date} />
           {""}
         </li>
       </ul>
@@ -35,16 +35,11 @@ export default function WeatherInfo(props) {
             id="fahrenheit-link"
             className="active"
             alt=""
-          >
-            °F
-          </a>{" "}
-          |
-          <a href="/" rel="noreferrer" id="celcius-link">
-            ºC
-          </a>
+          ></a>{" "}
+          <a href="/" rel="noreferrer" id="celcius-link"></a>
         </span>
         <span>
-          <WeatherIcon code={props.data.icon} size={52} />
+          <WeatherIcon code={props.data.icon} size={72} />
         </span>
 
         <div className="row">
@@ -65,7 +60,7 @@ export default function WeatherInfo(props) {
           </span>
           <br />
           Feels like{" "}
-          <span id="feels-ike">{Math.round(props.data.main.feels_like)}°</span>
+          <span id="feels-ike">{Math.round(props.data.feels_like)}°</span>
           <br />
           <span id="wind">{Math.round(props.data.wind)} mph Wind</span>
           <br />

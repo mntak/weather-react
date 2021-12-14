@@ -18,6 +18,7 @@ export default function WeatherForecast(props) {
   if (received) {
     return (
       <div className="Weather-forecast">
+        <div className="row d-flex justify-content-center mt-3">
         <div className="col-2">
           {forecast.map(function (dailyForecast, index) {
             if (index < 5) {
@@ -32,6 +33,7 @@ export default function WeatherForecast(props) {
           })}
         </div>
       </div>
+      </div>
     );
   } else {
     let units = "imperial";
@@ -40,5 +42,7 @@ export default function WeatherForecast(props) {
     let latitude = props.coordinates.lat;
     let url = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${units}`;
     axios.get(url).then(handleForecast);
+
+    return null;
   }
 }

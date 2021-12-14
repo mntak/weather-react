@@ -10,7 +10,7 @@ export default function Weather(props) {
   function displayWeather(response) {
     setWeatherData({
       ready: true,
-      coordinates: response.data.coordinates,
+      coordinates: response.data.coord,
       temperature: response.data.main.temp,
       description: response.data.weather[0].description,
       date: new Date(response.data.dt * 1000),
@@ -60,14 +60,8 @@ export default function Weather(props) {
             Current location
           </button>
           <div className="overview">
-            <h1 id="city">{weatherData.city}</h1>
-            <ul>
-              <li>
-                <span id="date">{weatherData.date}</span>
-              </li>
-            </ul>
+            <Weatherinfo data={weatherData} />
           </div>
-          <Weatherinfo data={weatherData} />
           <WeatherForecast coordinates={weatherData.coordinates} />
         </div>
         <footer>
@@ -90,5 +84,9 @@ export default function Weather(props) {
         </footer>
       </div>
     );
+  } else {
+    search();
+
+    return null;
   }
 }
